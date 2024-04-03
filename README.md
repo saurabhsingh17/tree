@@ -19,3 +19,9 @@ class Main{
     }
 }
 ```
+### Traversals in Trees
+a. DFS
+1. Inorder (Left,Root,Right)
+2. Preorder (Root,Left,Right)
+3. Post-order (Left, Right, Root)
+b. BFS
