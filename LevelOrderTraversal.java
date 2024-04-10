@@ -6,22 +6,24 @@ import java.util.Queue;
 public class LevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> wrapList = new LinkedList<>();
-        if(root == null) {
-            return wrapList;
-        }
-        queue.offer(root);
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+        if(root==null)
+            return result;
+
+        queue.add(root);
         while(!queue.isEmpty()){
-            int levelNum = queue.size();
-            List<Integer> subList = new LinkedList<>();
-            for(int i = 0; i < levelNum; i++){
-                if(queue.peek().left != null)queue.offer(queue.peek().left);
-                if(queue.peek().right != null)queue.offer(queue.peek().right);
-                subList.add(queue.poll().val);
+            int size = queue.size();
+            List<Integer> levels = new ArrayList<>();
+            for(int i=0; i<size; i++){
+                TreeNode current = queue.poll();
+                if(current.left!=null) queue.add(current.left);
+                if(current.right!=null) queue.add(current.right);
+                levels.add(current.val);
             }
-            wrapList.add(subList);
+            result.add(levels);
         }
-        return wrapList;
+        return result;
     }
     //recursive solution without using queue
     public List<List<Integer>> levelOrderRecursive(TreeNode root) {
