@@ -6,7 +6,7 @@ import java.util.Queue;
 public class LevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<>();
 
         if(root==null)
             return result;
